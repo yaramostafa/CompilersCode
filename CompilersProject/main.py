@@ -4,7 +4,7 @@ import re
 
 ID = re.compile(r"[A-Za-z]+")
 NUM = re.compile(r"[0-9]+")
-Compare_OPS = re.compile(r"[>|<|=|>=|<=]")
+Compare_OPS = re.compile(r">|<|=|>=|<=")
 assignment = re.compile(":=")
 semi_col = re.compile(";")
 tokensID = (':=', ';')
@@ -36,14 +36,14 @@ def statment_accept(code_in):
             l = tk.Label(root, text='inValid', bg='red').grid(row=4, column=1)
             return
         elif (code_in[i] == tokensLoop[1]) and (re.fullmatch(ID, code_in[i + 1])) and (
-                re.fullmatch(Compare_OPS, code_in[i + 2])) and (
+                (re.fullmatch(Compare_OPS, code_in[i + 2])) )and (
                 re.fullmatch(NUM, code_in[i + 3]) or re.fullmatch(ID, code_in[i + 3])) and i + 4 == len(code_in):
             print("VALID")
             l = tk.Label(root, text=' Valid ', bg='sea green').grid(row=4, column=1)
 
         else:
 
-            l = tk.Label(root, text=' inValid ', bg='red').grid(row=4, column=1)
+            l = tk.Label(root, text=' inValid 1', bg='red').grid(row=4, column=1)
 
 
     else:
@@ -71,7 +71,7 @@ def statment_accept(code_in):
             elif re.fullmatch(assignment, tok):
                 print("Assignment:", tok)
                 tokens.append(['Assignment', tok])
-            elif re.fullmatch(Compare_OPS, tok) and (tok != "=="):
+            elif re.fullmatch(Compare_OPS, tok) or (tok != "=="):
                 print("Comparison:", tok)
                 tokens.append(['Comparison', tok])
             elif re.fullmatch(semi_col, tok):
