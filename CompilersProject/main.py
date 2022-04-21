@@ -98,10 +98,11 @@ def statment_accept(code_in):
             return
 
     else:
-
         l = tk.Label(root, text=" inValid token at state 2 ", bg='red').grid(row=4, column=1)
 
+        return
 
+    l = tk.Label(root, text=" valid statments ", bg='green').place(x=60, y=500)
 
 
 def main():
