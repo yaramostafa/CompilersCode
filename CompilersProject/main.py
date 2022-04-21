@@ -2,7 +2,7 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import re
 
-ID = re.compile(r"[A-Za-z]+")
+ID = re.compile(r"[A-Za-z]+[0-9|A-Z|a-z]*")
 NUM = re.compile(r"[0-9]+")
 Compare_OPS = re.compile(r">|<|=|>=|<=")
 assignment = re.compile(":=")
