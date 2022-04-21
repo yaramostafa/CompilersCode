@@ -43,63 +43,63 @@ def statment_accept(code_in):
                             l = tk.Label(root, text="semi colon at state 6 : " + code_in[i+3]).grid(row=8,column=1+var)
 
                         else:
-                            l = tk.Label(root, text="invalid transition to state 6",bg='red').grid(row=4,column=1)
+                            l = tk.Label(root, text="invalid transition to state 6 ",bg='red').grid(row=4,column=1)
                             return
                     else:
-                        l = tk.Label(root, text="invalid transition to state 5", bg='red').grid(row=4,column=1)
+                        l = tk.Label(root, text="invalid transition to state 5 ", bg='red').grid(row=4,column=1)
                         return
                 else:
-                    l = tk.Label(root, text="invalid transition to state 4", bg='red').grid(row=4,column=1)
+                    l = tk.Label(root, text="invalid transition to state 4 ", bg='red').grid(row=4,column=1)
                     return
 
             else:
-                l = tk.Label(root, text="invalid transition to state 3", bg='red').grid(row=4,column=1)
+                l = tk.Label(root, text="invalid transition to state 3 ", bg='red').grid(row=4,column=1)
                 return
             i = i + 4
             if (i >= len(code_in)):
-                l = tk.Label(root, text="invalid transition to state 7", bg='red').grid(row=4,column=1)
+                l = tk.Label(root, text="invalid transition to state 7 ", bg='red').grid(row=4,column=1)
                 return
             var += 1
         if (code_in[i] == tokensLoop[1]):
             l = tk.Label(root, text="Keyword : until at state 7 ").grid(row=9,column=1)
             if (i + 1) >= len(code_in):
-                l = tk.Label(root, text="invalid transition to state 8", bg='red').grid(row=4,column=1)
+                l = tk.Label(root, text="invalid transition to state 8 ", bg='red').grid(row=4,column=1)
                 return
             if (re.fullmatch(ID, code_in[i + 1])) or (re.fullmatch(NUM, code_in[i + 1])) :
                 l = tk.Label(root, text="TRANSITION TO STATE 8 : "+ code_in[i+1]).grid(row=10,column=1)
                 if (i + 2) >= len(code_in):
-                    l = tk.Label(root, text="invalid transition to state 9",bg='red').grid(row=4,column=1)
+                    l = tk.Label(root, text="invalid transition to state 9 ",bg='red').grid(row=4,column=1)
                     return
                 if (re.fullmatch(Compare_OPS, code_in[i + 2])):
                     l = tk.Label(root, text="TRANSITION TO STATE 9 : " + code_in[i + 2]).grid(row=11,column=1)
                     if (i + 3) >= len(code_in):
-                        l = tk.Label(root, text="invalid transition to state 10",bg='red').grid(row=4,column=1)
+                        l = tk.Label(root, text="invalid transition to state 10 ",bg='red').grid(row=4,column=1)
                         return
                     if re.fullmatch(NUM, code_in[i + 3]) or re.fullmatch(ID, code_in[i + 3]):
                         l = tk.Label(root, text="TRANSITION TO STATE 10 : " + code_in[i + 3]).grid(row=12,column=1)
                     else:
-                        l = tk.Label(root, text="invalid transition to state 10" + code_in[i+3],bg='red').grid(row=4,column=1)
+                        l = tk.Label(root, text="invalid transition to state 10 " + code_in[i+3],bg='red').grid(row=4,column=1)
                         return
 
                 else:
-                    l = tk.Label(root, text="invalid transition to state 9" + code_in[i+2],bg='red').grid(row=4,column=1)
+                    l = tk.Label(root, text="invalid transition to state 9 " + code_in[i+2],bg='red').grid(row=4,column=1)
                     return
 
             else:
-                l=tk.Label(root, text="inValid token at state 8" + code_in[i+1], bg='red').grid(row=4,column=1)
+                l=tk.Label(root, text="inValid token at state 8 " + code_in[i+1], bg='red').grid(row=4,column=1)
                 return
 
         else:
-            l = tk.Label(root, text=" invalid token at state 7" + code_in[i], bg='red').grid(row=4, column=1)
+            l = tk.Label(root, text=" invalid token at state 7 " + code_in[i], bg='red').grid(row=4, column=1)
             return
 
         if ((i + 4) < len(code_in)):
-            l = tk.Label(root, text="inValid tranition to extra state", bg='red').grid(row=4, column=1)
+            l = tk.Label(root, text="inValid tranition to extra state ", bg='red').grid(row=4, column=1)
             return
 
     else:
 
-        l = tk.Label(root, text=" inValid token at state 2", bg='red').grid(row=4, column=1)
+        l = tk.Label(root, text=" inValid token at state 2 ", bg='red').grid(row=4, column=1)
 
 
 
